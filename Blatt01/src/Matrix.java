@@ -134,7 +134,8 @@ public class Matrix {
 	
 	
 	public double[][] streiche (double[][] alt, int z, int s) {
-		double[][]
+		//double[][]
+		return null;
 	}
 	
 	public void setzeWerte(double[][] a) throws Exception{
