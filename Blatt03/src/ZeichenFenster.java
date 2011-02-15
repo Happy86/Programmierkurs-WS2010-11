@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class ZeichenFenster extends JFrame {
 	private BufferedImage img;
 	private int x = 1280;
-	private int y = 800;
+	private int y = 780;
 
 	public ZeichenFenster() {
 		FensterBauen();
