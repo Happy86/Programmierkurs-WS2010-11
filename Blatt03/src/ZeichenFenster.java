@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class ZeichenFenster extends JFrame {
 	private BufferedImage img;
+	private int x = 500;
+	private int y = 600;
 
 	public ZeichenFenster() {
 		FensterBauen();
@@ -18,7 +20,7 @@ public class ZeichenFenster extends JFrame {
 		this.setTitle("Tolles Fenster!");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//this.setPreferredSize(new Dimension(150,50));
-		this.setSize(new Dimension(500,600));
+		this.setSize(new Dimension(this.x,this.y));
 		
 		this.setVisible (true);
 		
@@ -29,7 +31,7 @@ public class ZeichenFenster extends JFrame {
 	public void paint(Graphics g){
 		super.paint(g);
 		
-		img = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
+		img = new BufferedImage(this.x, this.y, BufferedImage.TYPE_INT_RGB);
 		befuellePixel(img);
 		g.drawImage(img, 0, 0, this);
 		
@@ -38,8 +40,8 @@ public class ZeichenFenster extends JFrame {
 	public void befuellePixel(BufferedImage it) {
 		Random rand;
 		rand = new Random (Integer.MAX_VALUE);
-		for (int k = 0; k < 250; k++) {
-			for (int l = 0; l < 250; l++) {
+		for (int k = 0; k < this.x; k++) {
+			for (int l = 0; l < this.y; l++) {
 				it.setRGB(k, l, rand.nextInt(Integer.MAX_VALUE));
 			}
 		}
