@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class ZeichenFenster extends JFrame {
 	private BufferedImage img;
-	private int x = 500;
-	private int y = 600;
+	private int x = 1280;
+	private int y = 800;
 
 	public ZeichenFenster() {
 		FensterBauen();
