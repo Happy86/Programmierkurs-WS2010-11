@@ -21,6 +21,7 @@ public class TesteMathe {
 		Polynom q1 = new Polynom(-3, 1);
 
 		System.out.println(p1.div(q1));
+		System.out.println(p1.ggT(q1));
 	}
 
 }

@@ -96,5 +96,25 @@ public class Polynom {
 		return new Polynom(erg);
 
 	}
+	
+	public Polynom ggT(Polynom q) {
+		Polynom p;
+		p = new Polynom(this.koeff);
+		if (p.grad() > q.grad())
+			return p;
+		
+		double hilf;
+
+		int p_akt_koeff = p.koeff.length;
+		for (int i = (p.koeff.length - 1); i >= 0; i--) {
+			hilf = p.koeff[p_akt_koeff] / q.koeff[q.koeff.length - 1];
+			Polynom c = q.durchmultiplizieren(-1.0 * hilf, i);
+			p = p.addiere(c);
+			p.koeff[p_akt_koeff] = 0.0;
+			p_akt_koeff--;
+		}
+		
+		return p;
+	}
 
 }
