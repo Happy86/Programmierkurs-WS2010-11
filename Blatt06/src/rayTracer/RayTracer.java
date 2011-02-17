@@ -23,7 +23,8 @@ public class RayTracer
             System.out.println(e.getMessage());
             System.exit(-1);
         }
-        
+        System.out.println(szene.getAufloesung());
+/*
         System.out.println(szene);
 
         
@@ -38,7 +39,7 @@ public class RayTracer
         frame.setVisible(true);
         
         szene.erzeugeBild(zB);
-        
+        */
     }
 
 }

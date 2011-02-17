@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import einausgabe.TextdateiLeser;
+
 import mathe.Vektor;
 import objekte3D.Gerade;
 import objekte3D.Licht;
@@ -33,7 +35,62 @@ public class Szene
         lichter = new LinkedList<Licht>();
         schwarz = new Farbe(0,0,0);
 	// Szenen-Datei einlesen!
-
+        TextdateiLeser Datei = new TextdateiLeser("szene.dat");
+        {
+	        // aufloesung
+	        int[] aufl = new int[2];
+	        aufl = Datei.leseIntArray(2);
+	        breite = aufl[0];
+	        hoehe = aufl[1];
+        }
+    	// ambient licht
+    	ambient = Datei.leseFarbe();
+    	kamera_pos = Datei.leseVektor();
+    	kamera_rechts = Datei.leseVektor();
+    	kamera_hoch = Datei.leseVektor();
+    	kamera_richtung = Datei.leseVektor();
+    	
+   		
+    	// freier Dateibereich
+		while (Datei.weiterLesen())
+		{
+			String buffer = "";
+	    	buffer = Datei.leseZeile();
+	    	if (buffer.compareTo("material") == 0)
+	    	{
+	    		String name;
+	    		Farbe farbe;
+	    		double kdiff, kspec, nspec, rf;
+	    		name = Datei.leseZeile();
+	    		farbe = Datei.leseFarbe();
+	    		kdiff = Datei.leseDouble();
+	    		kspec = Datei.leseDouble();
+	    		nspec = Datei.leseDouble();
+	    		rf = Datei.leseDouble();
+	    		Material hilf = new Material (name, farbe, kdiff, kspec, nspec, rf);
+	    		materialien.put(name, hilf);
+	    	}
+	    	else if (buffer.compareTo("objekt") == 0)
+	    	{
+	    		String typ, name;
+	    	}
+	    	else if (buffer.compareTo("licht") == 0)
+	    	{
+	    		//String typ;
+	    		Vektor position;
+	    		Farbe farbe;
+	    		//typ = Datei.leseZeile();
+	    		position = Datei.leseVektor();
+	    		farbe = Datei.leseFarbe();
+	    		Licht hilf = new Licht (position, farbe);
+	    		lichter.add (hilf);
+	    	}
+	    	else
+	    	{
+	    		throw new NullPointerException(";;");
+	    	}
+    	
+    	}
 
     }
 
@@ -68,7 +125,7 @@ public class Szene
     public String toString()
     {
         String s = "";
-        s += "Auflösung : " + breite + " , " + hoehe + "\n";
+        s += "Auflï¿½sung : " + breite + " , " + hoehe + "\n";
         s += "Kamera-Pos      : " + kamera_pos + "\n";
         s += "Kamera-Rechts   : " + kamera_rechts + "\n";
         s += "Kamera-Hoch     : " + kamera_hoch + "\n";

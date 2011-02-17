@@ -28,7 +28,7 @@ public class TextdateiLeser {
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("Datei konnte nicht geˆffnet werden! ("
+			System.out.println("Datei konnte nicht geoeffnet werden! ("
 					+ e.getMessage() + ")");
 			reader = null;
 		}
