@@ -2,20 +2,17 @@ package mathe;
 
 public class Polynom {
 	private static double fastNull = 0.0000000001;
-
 	private double[] koeff;
 
 	/*
 	 * Konstruktor
 	 */
-	public Polynom(double ... werte) {
+	public Polynom(double... werte) {
 		koeff = werte.clone();
 	}
-	
-	
+
 	/*
 	 * Polynom Methoden
-	 * 
 	 */
 	public String toString() {
 		String erg = "";
@@ -138,26 +135,23 @@ public class Polynom {
 		else
 			return ggT(b, a.mod(b));
 	}
-	
+
 	/*
 	 * Getter
 	 */
-	
 	public static double getFastNull() {
 		return fastNull;
 	}
-	
-	public double[] getKoeff(){
+
+	public double[] getKoeff() {
 		return this.koeff;
 	}
 
 	/*
 	 * Sonstiges
 	 */
-	public Polynom clone(){
+	public Polynom clone() {
 		Polynom p_ziel = new Polynom(this.getKoeff());
 		return p_ziel;
 	}
-
-
 }
