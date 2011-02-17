@@ -21,7 +21,38 @@ public class TesteMathe {
 		Polynom q1 = new Polynom(-3, 1);
 
 		System.out.println(p1.div(q1));
-		System.out.println(p1.ggT(q1));
+
+		System.out
+				.println("Spezialfälle mod :  \n==================================================");
+		a = new Polynom(1, 2, 3);
+		b = new Polynom(0.0);
+		System.out.println(a + " mod " + b + " = " + a.mod(b));
+
+		a = new Polynom(1.0);
+		b = new Polynom(0.0);
+		System.out.println(a + " mod " + b + " = " + a.mod(b));
+
+		a = new Polynom(1, 2, 3);
+		b = new Polynom(1.0);
+		System.out.println(a + " mod " + b + " = " + a.mod(b));
+
+		System.out
+				.println("Spezialfälle ggT :  \n==================================================");
+		a = new Polynom(1, 2, 3);
+		b = new Polynom(1.0);
+		System.out.println("ggT (" + a + ", " + b + ") = " + a.ggT(b));
+
+		a = new Polynom(1, 2, 3);
+		System.out.println("ggT (" + a + ", " + a + ") = " + a.ggT(a));
+
+		System.out
+				.println("Beispiel:\n===============================================");
+		// 15x^4 + 42x^3 + 21x^2 + 3x + 18
+		a = new Polynom(18, 3, 21, 42, 15);
+		// 6x^6 + 15x^5 - 9x^4 - 39x^3 - 12x^2 + 6x - 12
+		b = new Polynom(-12, 6, -12, -39, -9, 15, 6);
+		System.out.println("ggT (" + a + "\n, " + b + ") = \n" + a.ggT(b));
+
 	}
 
 }

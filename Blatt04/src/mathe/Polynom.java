@@ -96,25 +96,43 @@ public class Polynom {
 		return new Polynom(erg);
 
 	}
-	
-	public Polynom ggT(Polynom q) {
-		Polynom p;
-		p = new Polynom(this.koeff);
-		if (p.grad() > q.grad())
-			return p;
-		
-		double hilf;
 
-		int p_akt_koeff = p.koeff.length;
-		for (int i = (p.koeff.length - 1); i >= 0; i--) {
-			hilf = p.koeff[p_akt_koeff] / q.koeff[q.koeff.length - 1];
-			Polynom c = q.durchmultiplizieren(-1.0 * hilf, i);
+	public Polynom mod(Polynom q) {
+		Polynom p = new Polynom(koeff);
+		if (q.koeff.length > p.koeff.length)
+			return new Polynom(p.koeff);
+
+		int p_akt_koeff = p.koeff.length - 1;
+		int co = p.koeff.length - q.koeff.length + 1;
+		for (int i = co - 1; i >= 0; i--) {
+			double d = p.koeff[p_akt_koeff] / q.koeff[q.koeff.length - 1];
+			Polynom c = q.durchmultiplizieren(-1.0 * d, i);
 			p = p.addiere(c);
 			p.koeff[p_akt_koeff] = 0.0;
 			p_akt_koeff--;
 		}
-		
-		return p;
+		int g = p.grad();
+		if (g >= 0) {
+			double[] erg = new double[g + 1];
+			for (int i = 0; i <= g; i++)
+				erg[i] = p.koeff[i];
+			return new Polynom(erg);
+		} else
+			return new Polynom(0.0);
+	}
+
+	public Polynom ggT(Polynom b) {
+		if (b.grad() < 0)
+			return new Polynom(this.koeff);
+		else
+			return b.ggT(this.mod(b));
+	}
+
+	public static Polynom ggT(Polynom a, Polynom b) {
+		if (b.grad() < 0)
+			return a;
+		else
+			return ggT(b, a.mod(b));
 	}
 
 }
