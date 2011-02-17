@@ -5,14 +5,18 @@ public class Polynom {
 
 	private double[] koeff;
 
-	public static double getFastNull() {
-		return fastNull;
-	}
-
-	public Polynom(double... werte) {
+	/*
+	 * Konstruktor
+	 */
+	public Polynom(double ... werte) {
 		koeff = werte.clone();
 	}
-
+	
+	
+	/*
+	 * Polynom Methoden
+	 * 
+	 */
 	public String toString() {
 		String erg = "";
 		for (int i = koeff.length - 1; i >= 0; i--) {
@@ -134,5 +138,26 @@ public class Polynom {
 		else
 			return ggT(b, a.mod(b));
 	}
+	
+	/*
+	 * Getter
+	 */
+	
+	public static double getFastNull() {
+		return fastNull;
+	}
+	
+	public double[] getKoeff(){
+		return this.koeff;
+	}
+
+	/*
+	 * Sonstiges
+	 */
+	public Polynom clone(){
+		Polynom p_ziel = new Polynom(this.getKoeff());
+		return p_ziel;
+	}
+
 
 }
