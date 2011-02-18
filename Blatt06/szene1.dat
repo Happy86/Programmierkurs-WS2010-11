@@ -1,0 +1,196 @@
+#Bildauflösung
+300, 300
+
+
+#Ambient Licht
+0.1, 0.1, 0.1
+
+#Kamera-Pos
+0.0, 0.0, -50.0
+#Kamera-Vektoren
+1.0, 0.0, 0.0
+0.0, 1.0, 0.0
+0.0, 0.0, 1.5
+
+
+
+material
+grau
+0.5,0.5,0.5
+0.5
+1.35
+70.0
+0.9
+
+material
+grau1
+0.5,0.5,0.5
+0.5
+1.35
+70.0
+0.3
+
+material
+blau
+0.0, 0.0, 1.0  
+0.5
+1.35
+50.0
+0.5
+
+material
+gelb
+1.0,0.9,0.15
+0.5
+1.35
+50.0
+0.4
+
+#Material mit Namen Braun, ists aber net ;)
+material
+rot
+1.0,0.01,0.01
+0.95
+1.35
+50.0
+0.4
+
+material
+violett
+1.0, 0.0, 1.0
+0.95
+1.35
+50.0
+0.4
+
+material
+grün
+0.01,1.0,0.01
+0.5
+1.35
+50.0
+0.4
+
+
+
+# Definition einer Kugel
+kugel
+# Name des Objekts
+Gelber_Ball
+# Mittelpunkt (-> Translation)
+15.0, 0.0, 0.0
+# Materialname
+gelb
+
+kugel
+Grüner_Ball
+17.0, -7.0, -15.0
+grün
+
+
+#DRUMRUM
+kugel
+Roter_Ball
+-15.0, -7.0, 0.0
+rot
+
+# Definition eines Torus
+torus
+# Name des Objekts
+Grauer_Ring
+# Mittelpunkt (-> Translation)
+0.0, -9.0, -25
+# Großer Radius
+5.0
+# Kleiner Radius
+1.0
+# Materialname
+grau1
+
+kugel
+Blauer_Ball
+0.0, -7.0, -15.0
+violett
+
+torus
+Torus_1
+5.0, 5.0, 0.0
+9.0
+4.0
+blau
+
+
+# Definition einer Ebene
+ebene
+# Name des Objekts
+Hintere_Seite
+# Normalenvektor der Ebene
+0.0, 0.0, 55.0
+# Ein Punkt der Ebene
+0.0, 0.0, -1.0
+grau
+
+# Definition eines kegelförmigen Lichts
+kegellicht
+# Urpsrung des Lichts
+-30.0, 60.0, -30.0
+# Richtung des Lichts
+30.0, -60.0, 30.0
+# Farbe des Lichts
+0.7, 0.7, 0.7
+# Öffnungswinkel des Lichts 
+20.0
+
+
+# Definition einer punktförmigen Lichtquelle
+licht
+# Position des Lichts
+-30.0, 60.0, -30.0
+# Farbe des Lichts
+1.0, 1.0, 1.0
+
+
+
+ebene
+Boden-Ebene
+0.0, -10.0, 0.0
+0.0, 1.0, 0.0
+grau
+
+material
+dummy
+0.5,0.5,0.5
+0.5
+1.35
+50.0
+0.9
+
+# Definition einer Skalierung
+skalierung
+# Skalierung : x = 5*, y = 3*, z = 5*
+5.0, 3.0, 5.0
+# Was soll alles hiermit skaliert werden (Objektnamen)
+Roter_Ball
+
+skalierung
+6.0, 3.0, 6.0
+Grüner_Ball
+
+# Definition einer Rotation
+rotation
+# Rotation um x mit 30, y mit 0 und z mit 0 Grad
+30.0, 0.0, 0.0
+# Was soll alles hiermit rotiert werden (Objektnamen)
+Torus_1
+
+skalierung
+3.0, 3.0, 3.0
+Blauer_Ball
+
+skalierung
+10.0, 10.0, 10.0
+Gelber_Ball
+
+rotation
+90.0, 0.0, 0.0
+Grauer_Ring
