@@ -1,10 +1,9 @@
 package rayTracer;
 
 import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
-
 import anzeige.ZeichenBereich;
+
 
 public class RayTracer
 {
